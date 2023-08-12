@@ -27,25 +27,43 @@ const calculator = {
 
 let plainText = 'ATTACK AT DAWN'
 
-
 const cipherTextFunc = (key, text) => {
+    //all text lower cased
     const lowerCaseText = text.toLowerCase()
     let cipherText = ''
     let alphabet = /[a-z]/
+    //handle negative key values
+    if (key < 0) key = 26 + key
     for (let i = 0; i < text.length; i++) {
-        if (alphabet.test(lowerCaseText.charAt(i))) {
-            let shiftedCharCode = (lowerCaseText.charCodeAt(i) - 97 + key) % 26 + 97        
-            if (shiftedCharCode < 0) {
-                shiftedCharCode = (shiftedCharCode + 26) % 26
-            }
-            cipherText += String.fromCharCode(shiftedCharCode + 97)
-        } else cipherText += text.charAt(i) //append non alphabet characters
+        if (alphabet.test(lowerCaseText.charAt(i))) cipherText += String.fromCharCode((lowerCaseText.charCodeAt(i) - 97 + key) % 26 + 97)
+        else cipherText += text.charAt(i) //append non alphabet characters
     }
     return cipherText
 }
 
 const cipherText = cipherTextFunc(3, plainText)
 console.log(cipherText)
+
+const testArray = [1,8,3,4,2,6]
+
+const analyzeArray = (array) => {
+    const sortedArray = array.sort((a, b) => a - b)
+    console.log(sortedArray)
+    const arraySum = array.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+    const arrayAverage = arraySum/array.length
+
+  return  object = {
+    average: arrayAverage,
+    min: sortedArray[0],
+    max: sortedArray[sortedArray.length],
+    length: array.length
+    }
+}
+
+const object = analyzeArray(testArray)
+console.log(object)
+
+
 
 
 

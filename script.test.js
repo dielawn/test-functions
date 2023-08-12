@@ -48,15 +48,15 @@ testCases.forEach(({ key, input, output }) => {
         expect(cipherTextFunc(key, input)).toBe(output)
     })
 
-    test('handle uppercase letters', () => {        
+    test(`handle uppercase letters in "${input}" `, () => {        
         expect(cipherTextFunc(key, input)).toBe(output)
     })
 
-    test('handle non-alphbet characters', () => {
+    test(`handle non-alphbet characters in "${input}"`, () => {
         expect(cipherTextFunc(key, input)).toBe(output)
     })
 
-    test('handle negative key values', () => {
+    test(`handle negative key values in "${input}"`, () => {
         expect(cipherTextFunc(key, input)).toBe(output)
     })
 })
