@@ -47,21 +47,21 @@ console.log(cipherText)
 const testArray = [1,8,3,4,2,6]
 
 const analyzeArray = (array) => {
-    const sortedArray = array.sort((a, b) => a - b)
-    console.log(sortedArray)
+    
+    const sortedArray = array.slice().sort((a, b) => a - b)
     const arraySum = array.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
-    const arrayAverage = arraySum/array.length
+    const arrayAverage = arraySum / array.length
 
-  return  object = {
+  return {
     average: arrayAverage,
     min: sortedArray[0],
-    max: sortedArray[sortedArray.length],
+    max: sortedArray[sortedArray.length - 1],
     length: array.length
     }
 }
 
-const object = analyzeArray(testArray)
-console.log(object)
+const resultObject = analyzeArray(testArray)
+console.log(resultObject)
 
 
 
@@ -74,5 +74,7 @@ module.exports = {
     plainText,
     cipherText,
     cipherTextFunc,
+    testArray,
+    analyzeArray,
 
 }
